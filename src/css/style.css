@@ -1,0 +1,273 @@
+@font-face {
+    font-family: "OpenSans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../font/OpenSans-Regular.woff") format("woff");
+  }
+  
+  body {
+    position: relative;
+    color: #1b1b1b;
+    font-family: "OpenSans";
+    /* background: #c1dcdd; */
+    /* background: #3e5a6d; */
+  
+    background: linear-gradient( #999999, transparent 1px), linear-gradient( 90deg, #999999, transparent 1px);
+      background-size: 18px 18px;
+      background-position: center center;
+    background-color: #e2e2e2;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Общие стили для полосы прокрутки */
+  /* Ширина и цвет полосы прокрутки */
+  ::-webkit-scrollbar {
+    width: 10px;
+    /* background-color: #e2e2e2; */
+    background-color: transparent;
+    border-radius: 0 3px 3px 0;
+  }
+  
+  /* Стили для "бегунка" полосы прокрутки */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+  }
+  
+  /* тень от наведения мышкой на полосу прокрутки */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #999999;
+  }
+  
+  #hw {
+    margin: 20px auto;
+    max-width: 500px;
+  }
+  
+  .header {
+    text-align: center;
+    font-weight: 700;
+  }
+  
+  .container, .popup-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    min-width: 320px;
+    max-width: 700px;
+    margin: 20px auto;
+    /* padding: 0 0 10px 0; */
+  
+    border-radius: 3px;
+    box-shadow: 0px 0px 8px 2px #7e7e7e;
+  
+    /* background-color: #cacaca; */
+    background-color: #e2e2e2;
+    
+    /* background: linear-gradient( #999999, transparent 1px), linear-gradient( 90deg, #999999, transparent 1px);
+      background-size: 18px 18px;
+      background-position: center center;
+    background-color: #e2e2e2; */
+  }
+  
+  /* Стили для попапа */
+  .popup {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.15); /* Полупрозрачный фон */
+    z-index: 9999; /* Очень большой z-index, чтобы попап был поверх всего */
+    backdrop-filter: blur(5px); /* Значение "8px" задает интенсивность размытия */
+  }
+  
+  .popup-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Чтобы попап был по центру экрана */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .popup-header, .popup-login, .popup-button {
+    box-sizing: border-box;
+    width: 90%;
+    padding: 8px 5px;
+    margin: 18px auto 0;
+  
+    font-size: 100%;
+    text-align: center;
+  
+    border: 1px solid #999999;
+    border-radius: 5px;
+  }
+  
+  .popup-login {
+    box-shadow: inset 0px 0px 4px 1px #7e7e7e;
+  }
+  
+  .popup-login:focus {
+    outline: 1px solid #999999;
+    box-shadow: 0px 0px 8px 2px #7e7e7e;
+  }
+  
+  .popup-button {
+    margin-bottom: 18px;
+    box-shadow: 0px 0px 5px 1px #7e7e7e;
+    cursor: pointer;
+  }
+  
+  .popup-button:hover {
+    background-color: #d6d6d6;
+    box-shadow: 0px 0px 8px 2px #7e7e7e;
+  }
+  
+  .popup-button:active {
+    box-shadow: none; /* Убираем тень */
+    position: relative; /* Позволит смещать кнопку на небольшое расстояние */
+    top: 2px; /* Небольшое смещение вниз */
+  }
+  
+  .chat {
+    box-sizing: border-box;
+    /* white-space: pre; */
+    height: 400px;
+    width: 94%;
+    margin: 15px auto 0;
+    padding: 15px;
+    /* border: 1px solid red; */
+    border-radius: 3px;
+    background-color: #e2e2e2;
+    box-shadow: inset 0 0 10px #999999; /* Настройте параметры тени здесь */
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .message-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .message-left {
+    align-items: flex-start;
+  }
+  
+  .message-right {
+    align-items: flex-end;
+    text-align: end;
+  }
+  
+  .message {
+    margin-top: 10px;
+    border: 1px solid #999999;
+    border-radius: 10px;
+  }
+  
+  .message-author {
+    padding: 2px 8px;
+    /* border-bottom: 1px solid red; */
+    background-color: #7e7e7e3a;
+    border-radius: 10px 10px 0 0;
+    font-size: 80%;
+  }
+  
+  .message-text {
+    padding: 2px 8px;
+    word-break: break-all;
+  }
+  
+  .chat-control {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 95%;
+    margin-bottom: 15px;
+  }
+  
+  .chat-message {
+    flex-grow: 1;
+    box-sizing: border-box;
+    margin: 10px 0 0 0;
+    padding: 4px;
+    /* width: 80%; */
+    margin: 10px auto 0;
+  }
+  
+  .chat-send {
+    /* width: 20%; */
+    margin: 10px 0 0 0;
+    padding: 3px;
+  }
+  
+  .close {
+    display: none;
+  }
+  
+  @keyframes glow {
+    0% {
+    /* border-color: #0062ff; */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3), inset 0 0 5px rgba(255, 0, 0, .2);
+    }	
+    100% {
+    /* border-color: #0062ff; */
+    box-shadow: 0 0 20px rgba(255, 0, 0, .9), inset 0 0 10px rgba(255, 0, 0, .7);
+    }
+  }
+  
+  .error-add {
+    animation: glow 500ms ease-out infinite alternate;
+  }
+  
+  .users {
+    position: absolute;
+    top: 30px;
+    right: 100%;
+    min-width: 100px;
+    width: auto;
+    max-height: calc(100% - 60px);
+    /* left: 0; */
+    /* bottom: 0; */
+    
+    /* transition: -50px; */
+    /* border: 1px solid red; */
+    border-right: none;
+    background-color: #e2e2e2;
+    border-radius: 5px 0 0 5px;
+    box-shadow: -5px 0px 8px 1px #7e7e7e;
+  }
+  
+  .user {
+    margin: 12px 12px 12px 12px;
+    padding: 3px 8px;
+    border: 1px solid #7e7e7e;
+    border-radius: 3px;
+  }
+  
+  .loading {
+    display: flex;
+    margin: auto;
+  
+    font-weight: bold;
+    display:inline-block;
+    font-family: monospace;
+    font-size: 30px;
+    clip-path: inset(0 3ch 0 0);
+    animation: l 1s steps(4) infinite;
+  }
+  
+  @keyframes l {
+    to {
+      clip-path: inset(0 -1ch 0 0)
+    }
+  }
